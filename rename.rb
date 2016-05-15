@@ -9,5 +9,5 @@ show_name = gets
 shows = HTTParty.get(TV_MAZE + "search/shows?q=" + show_name.gsub(" ", "-"))
 
 shows.each do |show|
-  puts show[:title]
+  puts show["show"]["name"] + " (" + show["show"]["premiered"].slice(0,4) + ")"
 end
